@@ -29,6 +29,9 @@ function writeToClipboard(frameUrl) {
   // Show the document
   const link = 'https://docs.google.com/document/d/1sCb9rl4r_pz-Rf735vy_vBeY-zYi9hbexTMV1jEwlI8/edit?tab=t.0#heading=h.g4j6xv5ingx0';
   window.open(link, "_blank").focus();
+
+  // Say that it has been copied to clipboard
+  alert('The link has been copied to clipboard. Paste to terminal according to the document just opened.');
 }
 
 async function copyToClipboard(frameUrl, tab) {
@@ -56,7 +59,6 @@ function genericOnClick(info) {
         const frameUrl = info.frameUrl;
         console.debug(`Frame url exists: ${frameUrl}`);
         // TODO: Show the link
-        // TODO: Say the file will be downloaded as <name> as popup
         copyToCurrentTabClipboard(frameUrl);
       }
       break;
