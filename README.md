@@ -1,5 +1,9 @@
-Tutorial link: https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world
-
 ## Running This Extension
 
-1. Load this directory in Chrome as an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
+1. Download this extension from [here](https://github.com/kpldvnpne/naati-extension/archive/refs/tags/latest.zip).
+2. Extract the file that is downloaded to Downloads folder.
+3. Then, open new tab and go to [chrome://extensions](chrome://extensions).
+3. Click on Load upacked and select the extracted folder from the Downloads folder.
+   ![Load Unpacked](screenshots/load_unpacked.png)
+4. When you are done, it should look like this:
+   ![Loaded Extension](screenshots/loaded_extension.png)
