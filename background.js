@@ -25,6 +25,10 @@ function writeToClipboard(frameUrl) {
   // Write to clipboard
   console.debug("Writing to clipboard");
   navigator.clipboard.writeText(command);
+
+  // Show the document
+  const link = 'https://docs.google.com/document/d/1sCb9rl4r_pz-Rf735vy_vBeY-zYi9hbexTMV1jEwlI8/edit?tab=t.0#heading=h.g4j6xv5ingx0';
+  window.open(link, "_blank").focus();
 }
 
 async function copyToClipboard(frameUrl, tab) {
