@@ -2,25 +2,42 @@ chrome.contextMenus.onClicked.addListener(genericOnClick);
 
 const menuItemId = 'download-with-ytdlp';
 
-function writeToClipboard(text) {
+function writeToClipboard(frameUrl) {
+  // Create command
+  let command = `yt-dlp --add-header "Referer: https://www.nepalinaati.com" "${frameUrl}"`
+
+  // Get output file name
+  let filename = prompt("Enter the file's name", undefined);
+
+  // Use .mp4 ext by default
+  if (!filename.endsWith('.mp4')) {
+    filename += '.mp4';
+  }
+
+  // Update command if filename exists
+  if (filename != undefined) {
+    command += ` -o ${filename}`
+  }
+
+  // Write to clipboard
   console.debug("Writing to clipboard");
-  navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(command);
 }
 
-async function copyToClipboard(text, tab) {
+async function copyToClipboard(frameUrl, tab) {
   console.debug("Executing script");
   await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: writeToClipboard,
-    args: [text],
+    args: [frameUrl],
   });
 }
 
-async function copyToCurrentTabClipboard(text) {
+async function copyToCurrentTabClipboard(frameUrl) {
   console.debug("Writing to tab");
   const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
   console.debug('Tab id', tab.id);
-  await copyToClipboard(text, tab);
+  await copyToClipboard(frameUrl, tab);
   console.debug("URL Copied");
 }
 
@@ -32,8 +49,8 @@ function genericOnClick(info) {
         const frameUrl = info.frameUrl;
         console.debug(`Frame url exists: ${frameUrl}`);
         // TODO: Show the link
-        const command = `yt-dlp --add-header "Referer: https://www.nepalinaati.com" "${frameUrl}"`
-        copyToCurrentTabClipboard(command);
+        // TODO: Say the file will be downloaded as <name> as popup
+        copyToCurrentTabClipboard(frameUrl);
       }
       break;
     default:
