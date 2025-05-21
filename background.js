@@ -9,6 +9,9 @@ function writeToClipboard(frameUrl) {
   // Get output file name
   let filename = prompt("Enter the file's name", undefined);
 
+  // Replace / with -
+  filename = filename.replaceAll('/', '-');
+
   // Use .mp4 ext by default
   if (!filename.endsWith('.mp4')) {
     filename += '.mp4';
