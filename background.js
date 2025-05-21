@@ -6,7 +6,7 @@ const menuItemId = 'download-with-ytdlp';
 
 function writeToClipboard(frameUrl) {
   // Create command
-  let command = `yt-dlp --add-header "Referer: https://www.nepalinaati.com" "${frameUrl}"`
+  let command = `./yt-dlp --add-header "Referer: https://www.nepalinaati.com" "${frameUrl}"`
 
   // Get output file name
   let filename = prompt("Enter the file's name", undefined);
