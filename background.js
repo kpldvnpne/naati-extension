@@ -45,7 +45,7 @@ chrome.runtime.onInstalled.addListener(function () {
   console.debug("Installed run");
   chrome.contextMenus.create({
     title: 'Download with yt-dlp',
-    contexts: ['page'], // TODO: Show in nepalinaati.com only. And only show on iframes.
+    contexts: ['frame'], // TODO: Show in nepalinaati.com only. And only show on iframes.
     id: menuItemId,
   }, function () {
     console.debug("Context menu added");
