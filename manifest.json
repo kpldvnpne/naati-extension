@@ -1,0 +1,10 @@
+{
+  "name": "Download from NAATI",
+  "description": "Helps to build the yt-dlp command to download videos from NAATI.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "main.html",
+    "default_icon": "hello_extensions.png"
+  }
+}
