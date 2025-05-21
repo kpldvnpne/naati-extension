@@ -1,5 +1,7 @@
 chrome.contextMenus.onClicked.addListener(genericOnClick);
 
+// TODO: Create a new release on Github
+
 const menuItemId = 'download-with-ytdlp';
 
 function writeToClipboard(frameUrl) {
@@ -58,7 +60,6 @@ function genericOnClick(info) {
       if (info.frameUrl != undefined) {
         const frameUrl = info.frameUrl;
         console.debug(`Frame url exists: ${frameUrl}`);
-        // TODO: Show the link
         copyToCurrentTabClipboard(frameUrl);
       }
       break;
